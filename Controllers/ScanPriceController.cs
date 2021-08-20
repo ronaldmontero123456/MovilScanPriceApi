@@ -28,7 +28,7 @@ namespace MovilScanPriceApi.Controllers
         [Route("GetProductsByBarCode")]
         public async Task<ActionResult<VW_PRODUCTOSLECTOR>> GetProductsByBarCode(string barcode)
         {
-            var product = await _productsContext.VW_PRODUCTOSLECTOR.Where(p => p.BarCode == barcode).FirstOrDefaultAsync();
+            var product = await _productsContext.VW_PRODUCTOSLECTOR.Where(p => p.Barcode == barcode).FirstOrDefaultAsync();
 
             if (product == null)
             {

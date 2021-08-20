@@ -12,14 +12,11 @@ namespace MovilScanPriceApi.Models
         public string Codigo { get; set; }
 
         [StringLength(120)]
-        public string BarCode { get; set; }
+        public string Barcode { get; set; }
 
         [StringLength(200)]
         public string Description { get; set; }
-
-        [StringLength(50)]
-        public string ProImg { get; set; }
         public decimal? Precio { get; set; }
-        public decimal? PrincipioActivo { get; set; }
+        public string PrincipioActivo { get; set; }
     }
 }
