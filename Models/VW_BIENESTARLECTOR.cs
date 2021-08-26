@@ -14,6 +14,7 @@ namespace MovilScanPriceApi.Models
         public string Cedula { get; set; }
         public string Description { get; set; }
         public decimal TotalPuntos { get; set; }
+        public string CarnetNo { get; set; }
 
     }
 }

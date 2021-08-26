@@ -18,10 +18,10 @@ namespace MovilScanPriceApi.Controllers
             _productsContext = productsContext;
         }
 
-        public IActionResult Index()
-        {
-            return Ok();
-        }
+        //public IActionResult Index()
+        //{
+        //    return Ok();
+        //}
 
         //GET: api/Products/BarCode
         [HttpGet]
@@ -32,21 +32,21 @@ namespace MovilScanPriceApi.Controllers
 
             if (product == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             return Ok(product);
         }
-        
+
         //GET: api/Products/BarCode
         [HttpGet]
         [Route("GetTarjetaByBarCode")]
         public async Task<ActionResult<VW_BIENESTARLECTOR>> GetTarjetaByBarCode(string tarjcode)
         {
-            var product = await _productsContext.VW_BIENESTARLECTOR.Where(p => p.Cedula == tarjcode).FirstOrDefaultAsync();
+            var product = await _productsContext.VW_BIENESTARLECTOR.Where(p => p.Cedula == tarjcode || p.CarnetNo == $"4{tarjcode}").FirstOrDefaultAsync();
 
             if (product == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             return Ok(product);
         }
